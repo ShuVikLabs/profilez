@@ -56,7 +56,7 @@ jobs:
     needs: changes
     # On push to main -> always run
     # On PR -> run only if the filter said "true"
-    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main') || (github.event_name == 'pull_request' && needs.changes.outputs.frontend == 'true') }}
+    if: ${{ needs.changes.outputs.frontend == 'true' }}
     defaults:
       run:
         working-directory: frontend
@@ -83,7 +83,7 @@ jobs:
     needs: changes
     # On push to main -> always run
     # On PR -> run only if the filter said "true"
-    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main') || (github.event_name == 'pull_request' && needs.changes.outputs.backend == 'true') }}
+    if: ${{ needs.changes.outputs.backend == 'true' }}
     defaults:
       run:
         working-directory: backend
