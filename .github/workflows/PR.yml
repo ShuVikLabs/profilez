@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: ["**"]
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
-    branches: ["main"]
+    branches: [main]
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -21,22 +21,42 @@ jobs:
       frontend: ${{ steps.filter.outputs.frontend }}
       backend: ${{ steps.filter.outputs.backend }}
     steps:
-      - uses: actions/checkout@v4
-      - id: filter
+      - name: Checkout (full history for reliable diffs)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Optional: show context
+      - run: |
+          echo "event_name=${{ github.event_name }}"
+          echo "ref=${{ github.ref }}"
+          echo "base_ref=${{ github.base_ref }}"
+          echo "head_ref=${{ github.head_ref }}"
+
+      - name: Paths filter
+        id: filter
         uses: dorny/paths-filter@v3
         with:
+          # When it's a PR, paths-filter auto-detects base/head; for pushes it compares last commit.
+          # Adjust folders if your structure differs.
           filters: |
             frontend:
               - 'frontend/**'
             backend:
               - 'backend/**'
 
+      - name: Echo filter results
+        run: |
+          echo "frontend=${{ steps.filter.outputs.frontend }}"
+          echo "backend=${{ steps.filter.outputs.backend }}"
+
   build-frontend:
     name: Build Frontend
     runs-on: ubuntu-latest
     needs: changes
-    # Run on push to main (always), OR on PR only if frontend changed
-    if: ${{ github.event_name == 'push' || (github.event_name == 'pull_request' && fromJSON(needs.changes.outputs.frontend)) }}
+    # On push to main -> always run
+    # On PR -> run only if the filter said "true"
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main') || (github.event_name == 'pull_request' && needs.changes.outputs.frontend == 'true') }}
     defaults:
       run:
         working-directory: frontend
@@ -61,8 +81,9 @@ jobs:
     name: Build Backend
     runs-on: ubuntu-latest
     needs: changes
-    # Run on push to main (always), OR on PR only if backend changed
-    if: ${{ github.event_name == 'push' || (github.event_name == 'pull_request' && fromJSON(needs.changes.outputs.backend)) }}
+    # On push to main -> always run
+    # On PR -> run only if the filter said "true"
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main') || (github.event_name == 'pull_request' && needs.changes.outputs.backend == 'true') }}
     defaults:
       run:
         working-directory: backend
