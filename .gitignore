@@ -207,3 +207,10 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+# OpenAPI Generated Code (DO NOT COMMIT)
+# Backend generated code
+backend/build/generated/
+
+# Frontend generated API client
+frontend/src/api/

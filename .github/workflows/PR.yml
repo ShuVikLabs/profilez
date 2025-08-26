@@ -43,8 +43,10 @@ jobs:
           filters: |
             frontend:
               - 'frontend/**'
+              - 'api-spec/**'
             backend:
               - 'backend/**'
+              - 'api-spec/**'
             docs:
               - 'docs/**'
 
