@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!-- Suppress all checks for generated code -->
+    <suppress files=".*[/\\]generated[/\\].*" checks=".*"/>
+    <suppress files=".*[/\\]build[/\\].*" checks=".*"/>
+    <suppress files=".*[/\\]target[/\\].*" checks=".*"/>
+    
+    <!-- Suppress for OpenAPI generated files -->
+    <suppress files=".*[/\\]api[/\\].*\.java" checks=".*"/>
+    <suppress files=".*[/\\]model[/\\].*\.java" checks=".*"/>
+    
+    <!-- Suppress specific checks for Spring Boot main class -->
+    <suppress files=".*Application\.java" checks="HideUtilityClassConstructor"/>
+    <suppress files=".*Application\.java" checks="DesignForExtension"/>
+    
+    <!-- Suppress for test files -->
+    <suppress files=".*Test\.java" checks="MagicNumber"/>
+    <suppress files=".*Test\.java" checks="MethodLength"/>
+    
+    <!-- Suppress for configuration classes -->
+    <suppress files=".*Config\.java" checks="DesignForExtension"/>
+    <suppress files=".*Configuration\.java" checks="DesignForExtension"/>
+</suppressions>

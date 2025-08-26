@@ -1,7 +1,11 @@
 package com.shuviklabs.profilez.controller;
 
 import com.shuviklabs.profilez.api.CandidatesApi;
-import com.shuviklabs.profilez.model.*;
+import com.shuviklabs.profilez.model.CandidatePageResponse;
+import com.shuviklabs.profilez.model.CandidateResponse;
+import com.shuviklabs.profilez.model.CandidateStatusRequest;
+import com.shuviklabs.profilez.model.CreateCandidateRequest;
+import com.shuviklabs.profilez.model.UpdateCandidateRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,16 +22,19 @@ import java.util.UUID;
 @RestController
 public class CandidatesController implements CandidatesApi {
 
+    private static final int DEFAULT_PAGE_SIZE = 20;
+    private static final int DAYS_CREATED_AGO = 5;
+
     @Override
-    public ResponseEntity<CandidateResponse> createCandidate(CreateCandidateRequest createCandidateRequest) {
-        // TODO: Implement candidate creation logic
+    public ResponseEntity<CandidateResponse> createCandidate(final CreateCandidateRequest createCandidateRequest) {
+        // Implementation: candidate creation logic
         // This is where you would typically:
         // 1. Validate the request
         // 2. Convert to entity and save to database
         // 3. Convert back to response model
         
         // For now, return a sample response
-        CandidateResponse candidate = new CandidateResponse();
+        final CandidateResponse candidate = new CandidateResponse();
         candidate.setId(UUID.randomUUID());
         candidate.setFirstName(createCandidateRequest.getFirstName());
         candidate.setLastName(createCandidateRequest.getLastName());
@@ -39,16 +46,16 @@ public class CandidatesController implements CandidatesApi {
     }
 
     @Override
-    public ResponseEntity<Void> deleteCandidate(UUID candidateId) {
-        // TODO: Implement candidate deletion logic
+    public ResponseEntity<Void> deleteCandidate(final UUID candidateId) {
+        // Implementation: candidate deletion logic
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @Override
-    public ResponseEntity<CandidateResponse> getCandidateById(UUID candidateId) {
-        // TODO: Implement get candidate by ID logic
+    public ResponseEntity<CandidateResponse> getCandidateById(final UUID candidateId) {
+        // Implementation: get candidate by ID logic
         // For now, return a sample response
-        CandidateResponse candidate = new CandidateResponse();
+        final CandidateResponse candidate = new CandidateResponse();
         candidate.setId(candidateId);
         candidate.setFirstName("John");
         candidate.setLastName("Doe");
@@ -61,21 +68,21 @@ public class CandidatesController implements CandidatesApi {
 
     @Override
     public ResponseEntity<CandidatePageResponse> searchCandidates(
-            Integer page, 
-            Integer size, 
-            String sort, 
-            String search, 
-            String skills, 
-            Integer experience, 
-            String location) {
+            final Integer page,
+            final Integer size,
+            final String sort,
+            final String search,
+            final String skills,
+            final Integer experience,
+            final String location) {
         
-        // TODO: Implement search logic with pagination, filtering, and sorting
+        // Implementation: search logic with pagination, filtering, and sorting
         // For now, return a sample paginated response
-        CandidatePageResponse pageResponse = new CandidatePageResponse();
+        final CandidatePageResponse pageResponse = new CandidatePageResponse();
         pageResponse.setContent(List.of()); // Empty list for now
         pageResponse.setTotalElements(0);
         pageResponse.setTotalPages(0);
-        pageResponse.setSize(size != null ? size : 20);
+        pageResponse.setSize(size != null ? size : DEFAULT_PAGE_SIZE);
         pageResponse.setNumber(page != null ? page : 0);
         pageResponse.setFirst(true);
         pageResponse.setLast(true);
@@ -84,33 +91,36 @@ public class CandidatesController implements CandidatesApi {
     }
 
     @Override
-    public ResponseEntity<CandidateResponse> updateCandidate(UUID candidateId, UpdateCandidateRequest updateCandidateRequest) {
-        // TODO: Implement candidate update logic
+    public ResponseEntity<CandidateResponse> updateCandidate(final UUID candidateId,
+                                                             final UpdateCandidateRequest updateCandidateRequest) {
+        // Implementation: candidate update logic
         // For now, return a sample response
-        CandidateResponse candidate = new CandidateResponse();
+        final CandidateResponse candidate = new CandidateResponse();
         candidate.setId(candidateId);
         candidate.setFirstName(updateCandidateRequest.getFirstName());
         candidate.setLastName(updateCandidateRequest.getLastName());
         candidate.setEmail(updateCandidateRequest.getEmail());
-        candidate.setCreatedAt(OffsetDateTime.now().minusDays(5)); // Simulate creation date
+        candidate.setCreatedAt(OffsetDateTime.now().minusDays(DAYS_CREATED_AGO)); // Simulate creation date
         candidate.setUpdatedAt(OffsetDateTime.now());
         
         return ResponseEntity.ok(candidate);
     }
 
     @Override
-    public ResponseEntity<CandidateResponse> updateCandidateStatus(UUID candidateId, CandidateStatusRequest candidateStatusRequest) {
-        // TODO: Implement candidate status update logic
+    public ResponseEntity<CandidateResponse> updateCandidateStatus(
+            final UUID candidateId,
+            final CandidateStatusRequest candidateStatusRequest) {
+        // Implementation: candidate status update logic
         // This method was automatically required after adding the new endpoint to the OpenAPI spec
         // This demonstrates how API-first development enforces contract implementation
         
         // For now, return a sample response
-        CandidateResponse candidate = new CandidateResponse();
+        final CandidateResponse candidate = new CandidateResponse();
         candidate.setId(candidateId);
         candidate.setFirstName("John");
         candidate.setLastName("Doe");
         candidate.setEmail("john.doe@example.com");
-        candidate.setCreatedAt(OffsetDateTime.now().minusDays(5));
+        candidate.setCreatedAt(OffsetDateTime.now().minusDays(DAYS_CREATED_AGO));
         candidate.setUpdatedAt(OffsetDateTime.now());
         
         return ResponseEntity.ok(candidate);

@@ -13,9 +13,9 @@ function App() {
         <div style={{ padding: '20px', textAlign: 'center' }}>
           <h2>Build Integration Complete</h2>
           <p>
-            This app demonstrates automatic API client generation from OpenAPI spec.
-            The build process automatically generates TypeScript types and API clients
-            before compilation, ensuring backend and frontend stay in sync.
+            This app demonstrates automatic API client generation from OpenAPI spec. The build
+            process automatically generates TypeScript types and API clients before compilation,
+            ensuring backend and frontend stay in sync.
           </p>
         </div>
       </main>

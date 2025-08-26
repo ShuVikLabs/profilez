@@ -45,3 +45,8 @@ profilez/
 - [Architecture]({{< relref "/docs/architecture" >}}) - System design and data models
 - [API Reference]({{< relref "/docs/api" >}}) - REST API endpoints
 - [Roadmap]({{< relref "/docs/roadmap" >}}) - Development phases and features
+
+## Development Process
+
+- [API-First Development]({{< relref "/docs/API_FIRST_DEVELOPMENT" >}}) - OpenAPI specification and code generation
+- [Code Quality]({{< relref "/docs/CODE_QUALITY" >}}) - Quality tools, standards, and CI/CD integration

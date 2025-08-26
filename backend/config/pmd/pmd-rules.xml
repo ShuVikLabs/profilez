@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<ruleset name="Profilez PMD Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 
+                             https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        PMD rules for the Profilez application.
+        Focuses on Spring Boot best practices and general Java quality.
+    </description>
+
+    <!-- Best Practices -->
+    <rule ref="category/java/bestpractices.xml">
+        <!-- Exclude rules that conflict with Spring patterns -->
+        <exclude name="GuardLogStatement"/>
+        <exclude name="UseVarargs"/> <!-- Spring sometimes requires arrays -->
+    </rule>
+
+    <!-- Code Style -->
+    <rule ref="category/java/codestyle.xml">
+        <!-- Exclude overly strict rules -->
+        <exclude name="ShortVariable"/>
+        <exclude name="LongVariable"/>
+        <exclude name="AtLeastOneConstructor"/>
+        <exclude name="OnlyOneReturn"/>
+        <exclude name="TooManyStaticImports"/>
+        <exclude name="LocalVariableCouldBeFinal"/>
+        <exclude name="MethodArgumentCouldBeFinal"/>
+        <exclude name="CommentDefaultAccessModifier"/>
+    </rule>
+
+    <!-- Design -->
+    <rule ref="category/java/design.xml">
+        <!-- Exclude rules that are too restrictive for Spring -->
+        <exclude name="LawOfDemeter"/>
+        <exclude name="LoosePackageCoupling"/>
+        <exclude name="UseUtilityClass"/>
+        <exclude name="TooManyMethods"/>
+    </rule>
+
+    <!-- Error Prone -->
+    <rule ref="category/java/errorprone.xml">
+        <!-- Keep all error prone rules - they catch real bugs -->
+    </rule>
+
+    <!-- Performance -->
+    <rule ref="category/java/performance.xml"/>
+
+    <!-- Security -->
+    <rule ref="category/java/security.xml"/>
+
+    <!-- Custom rules for Spring Boot -->
+    <!-- Note: Custom UnusedPrivateField configuration removed for compatibility -->
+
+    <!-- Exclude generated code -->
+    <exclude-pattern>.*/generated/.*</exclude-pattern>
+    <exclude-pattern>.*/target/.*</exclude-pattern>
+    <exclude-pattern>.*/build/.*</exclude-pattern>
+    
+    <!-- Exclude OpenAPI generated files -->
+    <exclude-pattern>.*/api/.*</exclude-pattern>
+    <exclude-pattern>.*/model/.*</exclude-pattern>
+
+</ruleset>

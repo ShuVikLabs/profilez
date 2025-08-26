@@ -3,6 +3,12 @@ plugins {
 	id 'org.springframework.boot' version '3.5.5'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id 'org.openapi.generator' version '7.10.0'
+	
+	// Code Quality plugins
+	id 'pmd'
+	id 'checkstyle'
+	id 'com.github.spotbugs' version '6.0.24'
+	id 'jacoco'
 }
 
 group = 'com.shuviklabs'
@@ -86,3 +92,94 @@ sourceSets {
 clean {
 	delete "$buildDir/generated"
 }
+
+// ===== CODE QUALITY CONFIGURATION =====
+
+// PMD Configuration
+pmd {
+	toolVersion = '7.5.0'
+	ruleSetFiles = files("config/pmd/pmd-rules.xml")
+	ignoreFailures = true  // Demo mode - normally false
+	reportsDir = file("$buildDir/reports/pmd")
+}
+
+// Checkstyle Configuration
+checkstyle {
+	toolVersion = '10.12.4'
+	configFile = file("config/checkstyle/checkstyle.xml")
+	ignoreFailures = false
+	maxWarnings = 0
+	reportsDir = file("$buildDir/reports/checkstyle")
+}
+
+// SpotBugs Configuration
+spotbugs {
+	ignoreFailures = true  // Demo mode - normally false
+	effort = 'max'
+	reportLevel = 'medium'
+	reportsDir = file("$buildDir/reports/spotbugs")
+}
+
+spotbugsMain {
+	reports {
+		html {
+			required = true
+			outputLocation = file("$buildDir/reports/spotbugs/main.html")
+		}
+		xml {
+			required = true
+			outputLocation = file("$buildDir/reports/spotbugs/main.xml")
+		}
+	}
+}
+
+// JaCoCo Configuration
+jacoco {
+	toolVersion = "0.8.11"
+}
+
+jacocoTestReport {
+	dependsOn test
+	reports {
+		xml.required = true
+		html.required = true
+		csv.required = false
+	}
+	finalizedBy jacocoTestCoverageVerification
+}
+
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.10 // 10% minimum coverage (demo threshold - normally 70%)
+			}
+		}
+		rule {
+			element = 'CLASS'
+			excludes = [
+				'*.config.*',
+				'*.model.*',     // Generated models
+				'*.api.*',       // Generated APIs
+				'*Application'   // Main application class
+			]
+			limit {
+				counter = 'LINE'
+				value = 'COVEREDRATIO'
+				minimum = 0.40   // 40% for individual classes (demo threshold)
+			}
+		}
+	}
+}
+
+test.finalizedBy jacocoTestReport
+
+// Custom task to run all quality checks
+task qualityCheck {
+	dependsOn pmdMain, pmdTest, checkstyleMain, checkstyleTest, spotbugsMain, jacocoTestReport
+	group = 'verification'
+	description = 'Runs all code quality checks'
+}
+
+// Make quality checks run before build
+check.dependsOn qualityCheck
