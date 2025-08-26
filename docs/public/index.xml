@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Profilez Documentation</title><link>https://profilez-docs.netlify.app/</link><description>Recent content on Profilez Documentation</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://profilez-docs.netlify.app/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://profilez-docs.netlify.app/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://profilez-docs.netlify.app/docs/getting-started/</guid><description>&lt;h1 id="getting-started">
+ Getting Started
+ 
+ &lt;a class="anchor" href="#getting-started">#&lt;/a>
+ 
+&lt;/h1>
+&lt;p>This guide will help you set up Profilez locally for development.&lt;/p>
+&lt;h2 id="prerequisites">
+ Prerequisites
+ 
+ &lt;a class="anchor" href="#prerequisites">#&lt;/a>
+ 
+&lt;/h2>
+&lt;p>Before you begin, ensure you have the following installed:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Java 21&lt;/strong> - Required for the backend&lt;/li>
+&lt;li>&lt;strong>Node.js ≥ 18&lt;/strong> - Required for the frontend&lt;/li>
+&lt;li>&lt;strong>Maven&lt;/strong> (or Gradle) - For building the backend&lt;/li>
+&lt;/ul>
+&lt;h2 id="local-development-setup">
+ Local Development Setup
+ 
+ &lt;a class="anchor" href="#local-development-setup">#&lt;/a>
+ 
+&lt;/h2>
+&lt;h3 id="backend-setup">
+ Backend Setup
+ 
+ &lt;a class="anchor" href="#backend-setup">#&lt;/a>
+ 
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>Navigate to the backend directory:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd backend
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Run the Spring Boot application:&lt;/p></description></item><item><title>Architecture</title><link>https://profilez-docs.netlify.app/docs/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://profilez-docs.netlify.app/docs/architecture/</guid><description>&lt;h1 id="architecture">
+ Architecture
+ 
+ &lt;a class="anchor" href="#architecture">#&lt;/a>
+ 
+&lt;/h1>
+&lt;h2 id="system-overview">
+ System Overview
+ 
+ &lt;a class="anchor" href="#system-overview">#&lt;/a>
+ 
+&lt;/h2>
+&lt;p>Profilez is built as a modern, scalable web application with a clear separation between frontend and backend services.&lt;/p>
+&lt;h3 id="technology-stack">
+ Technology Stack
+ 
+ &lt;a class="anchor" href="#technology-stack">#&lt;/a>
+ 
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Backend&lt;/strong>: Java 21 with Spring Boot 3.5.5&lt;/li>
+&lt;li>&lt;strong>Frontend&lt;/strong>: React 19.1.1 with modern JavaScript&lt;/li>
+&lt;li>&lt;strong>Build Tools&lt;/strong>: Maven/Gradle for backend, npm for frontend&lt;/li>
+&lt;/ul>
+&lt;h2 id="data-model">
+ Data Model
+ 
+ &lt;a class="anchor" href="#data-model">#&lt;/a>
+ 
+&lt;/h2>
+&lt;p>The data model evolves with each phase of development:&lt;/p>
+&lt;h3 id="mvp-phase">
+ MVP Phase
+ 
+ &lt;a class="anchor" href="#mvp-phase">#&lt;/a>
+ 
+&lt;/h3>
+&lt;p>&lt;strong>Candidate Entity&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>id&lt;/code> - Unique identifier&lt;/li>
+&lt;li>&lt;code>slug&lt;/code> - URL-friendly identifier for public profiles&lt;/li>
+&lt;li>&lt;code>fullName&lt;/code> - Candidate&amp;rsquo;s full name&lt;/li>
+&lt;li>&lt;code>headline&lt;/code> - Professional headline&lt;/li>
+&lt;li>&lt;code>summary&lt;/code> - Professional summary&lt;/li>
+&lt;li>&lt;code>links&lt;/code> - Social media and portfolio links&lt;/li>
+&lt;/ul>
+&lt;h3 id="later-phases">
+ Later Phases
+ 
+ &lt;a class="anchor" href="#later-phases">#&lt;/a>
+ 
+&lt;/h3>
+&lt;p>&lt;strong>Experience Entity&lt;/strong>&lt;/p></description></item><item><title>API Reference</title><link>https://profilez-docs.netlify.app/docs/api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://profilez-docs.netlify.app/docs/api/</guid><description>&lt;h1 id="api-reference">
+ API Reference
+ 
+ &lt;a class="anchor" href="#api-reference">#&lt;/a>
+ 
+&lt;/h1>
+&lt;h2 id="base-url">
+ Base URL
+ 
+ &lt;a class="anchor" href="#base-url">#&lt;/a>
+ 
+&lt;/h2>
+&lt;p>All API endpoints are prefixed with &lt;code>/api/v1&lt;/code>&lt;/p>
+&lt;h2 id="authentication">
+ Authentication
+ 
+ &lt;a class="anchor" href="#authentication">#&lt;/a>
+ 
+&lt;/h2>
+&lt;p>Currently, the MVP phase does not require authentication. Future phases will implement:&lt;/p>
+&lt;ul>
+&lt;li>JWT-based authentication&lt;/li>
+&lt;li>Role-based access control (RBAC)&lt;/li>
+&lt;li>API key management for recruiters&lt;/li>
+&lt;/ul>
+&lt;h2 id="mvp-endpoints">
+ MVP Endpoints
+ 
+ &lt;a class="anchor" href="#mvp-endpoints">#&lt;/a>
+ 
+&lt;/h2>
+&lt;h3 id="health-check">
+ Health Check
+ 
+ &lt;a class="anchor" href="#health-check">#&lt;/a>
+ 
+&lt;/h3>
+&lt;h4 id="get-health">
+ GET /health
+ 
+ &lt;a class="anchor" href="#get-health">#&lt;/a>
+ 
+&lt;/h4>
+&lt;p>Check the health status of the backend service.&lt;/p>
+&lt;p>&lt;strong>Response:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;status&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;UP&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;timestamp&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2024-01-01T12:00:00Z&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="candidates">
+ Candidates
+ 
+ &lt;a class="anchor" href="#candidates">#&lt;/a>
+ 
+&lt;/h3>
+&lt;h4 id="post-candidates">
+ POST /candidates
+ 
+ &lt;a class="anchor" href="#post-candidates">#&lt;/a>
+ 
+&lt;/h4>
+&lt;p>Create a new candidate profile.&lt;/p></description></item><item><title>Roadmap</title><link>https://profilez-docs.netlify.app/docs/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://profilez-docs.netlify.app/docs/roadmap/</guid><description>&lt;h1 id="development-roadmap">
+ Development Roadmap
+ 
+ &lt;a class="anchor" href="#development-roadmap">#&lt;/a>
+ 
+&lt;/h1>
+&lt;p>Profilez follows a phased development approach, starting with a simple MVP and evolving into a comprehensive talent platform.&lt;/p>
+&lt;h2 id="phase-0--single-candidate-mvp">
+ Phase 0 — Single-Candidate MVP
+ 
+ &lt;a class="anchor" href="#phase-0--single-candidate-mvp">#&lt;/a>
+ 
+&lt;/h2>
+&lt;p>&lt;strong>Status:&lt;/strong> 🚧 In Development&lt;/p>
+&lt;p>&lt;strong>Goal:&lt;/strong> Establish core functionality with minimal viable features.&lt;/p>
+&lt;p>&lt;strong>Features:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Single candidate profile creation&lt;/li>
+&lt;li>Public biodata URL (shareable link)&lt;/li>
+&lt;li>Simple text content with basic formatting&lt;/li>
+&lt;li>Clean, responsive design&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Technical Deliverables:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Basic Spring Boot backend with candidate CRUD&lt;/li>
+&lt;li>React frontend with profile editor&lt;/li>
+&lt;li>Public profile view&lt;/li>
+&lt;li>Basic validation and error handling&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Success Criteria:&lt;/strong>&lt;/p></description></item></channel></rss>

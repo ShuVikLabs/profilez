@@ -1,0 +1,55 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Getting Started
+  
+  #
+  
+
+This guide will help you set up Profilez locally for development.
+
+  Prerequisites
+  
+  #
+  
+
+Before you begin, ensure you have the following installed:
+
+Java 21 - Required for the backend
+Node.js ≥ 18 - Required for the frontend
+Maven (or Gradle) - For building the backend
+
+
+  Local Development Setup
+  
+  #
+  
+
+
+  Backend Setup
+  
+  #
+  
+
+
+
+Navigate to the backend directory:
+cd backend
+
+
+Run the Spring Boot application:"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://profilez-docs.netlify.app/docs/getting-started/"><meta property="og:site_name" content="Profilez Documentation"><meta property="og:title" content="Getting Started"><meta property="og:description" content="Getting Started # This guide will help you set up Profilez locally for development.
+Prerequisites # Before you begin, ensure you have the following installed:
+Java 21 - Required for the backend Node.js ≥ 18 - Required for the frontend Maven (or Gradle) - For building the backend Local Development Setup # Backend Setup # Navigate to the backend directory:
+cd backend Run the Spring Boot application:"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>Getting Started | Profilez Documentation</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://profilez-docs.netlify.app/docs/getting-started/><link rel=stylesheet href=/book.min.5c80a20e1f11b0e9dc4cae70ce44083860ffa999a7bf8ab5dab38664fde8a418.css integrity="sha256-XICiDh8RsOncTK5wzkQIOGD/qZmnv4q12rOGZP3opBg=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.106fab6c193958537ecfa8bad4c98f41f38913246d803d531556ade8b2a5743a.js integrity="sha256-EG+rbBk5WFN+z6i61MmPQfOJEyRtgD1TFVat6LKldDo=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Profilez Documentation</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/docs/getting-started/ class=active>Getting Started</a></li><li><a href=/docs/architecture/>Architecture</a></li><li><a href=/docs/api/>API Reference</a></li><li><a href=/docs/roadmap/>Roadmap</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Getting Started</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#getting-started>Getting Started</a><ul><li><a href=#prerequisites>Prerequisites</a></li><li><a href=#local-development-setup>Local Development Setup</a><ul><li><a href=#backend-setup>Backend Setup</a></li><li><a href=#frontend-setup>Frontend Setup</a></li></ul></li><li><a href=#verification>Verification</a></li><li><a href=#next-steps>Next Steps</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=getting-started>Getting Started
+<a class=anchor href=#getting-started>#</a></h1><p>This guide will help you set up Profilez locally for development.</p><h2 id=prerequisites>Prerequisites
+<a class=anchor href=#prerequisites>#</a></h2><p>Before you begin, ensure you have the following installed:</p><ul><li><strong>Java 21</strong> - Required for the backend</li><li><strong>Node.js ≥ 18</strong> - Required for the frontend</li><li><strong>Maven</strong> (or Gradle) - For building the backend</li></ul><h2 id=local-development-setup>Local Development Setup
+<a class=anchor href=#local-development-setup>#</a></h2><h3 id=backend-setup>Backend Setup
+<a class=anchor href=#backend-setup>#</a></h3><ol><li><p>Navigate to the backend directory:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd backend
+</span></span></code></pre></div></li><li><p>Run the Spring Boot application:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>./mvnw spring-boot:run   <span style=color:#75715e># or ./gradlew bootRun</span>
+</span></span></code></pre></div></li><li><p>The backend will be available at: <code>http://localhost:8080</code></p></li></ol><h3 id=frontend-setup>Frontend Setup
+<a class=anchor href=#frontend-setup>#</a></h3><ol><li><p>Navigate to the frontend directory:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd frontend
+</span></span></code></pre></div></li><li><p>Install dependencies:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm install
+</span></span></code></pre></div></li><li><p>Start the development server:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm run dev
+</span></span></code></pre></div></li><li><p>The frontend will be available at: <code>http://localhost:5173</code></p></li></ol><h2 id=verification>Verification
+<a class=anchor href=#verification>#</a></h2><p>Once both services are running:</p><ol><li>Open your browser to <code>http://localhost:5173</code></li><li>Check that the frontend can communicate with the backend</li><li>Visit <code>http://localhost:8080/health</code> to verify the backend health check</li></ol><h2 id=next-steps>Next Steps
+<a class=anchor href=#next-steps>#</a></h2><ul><li>Explore the <a href=/docs/architecture/>Architecture</a> to understand the system design</li><li>Check out the <a href=/docs/api/>API Reference</a> for available endpoints</li><li>Review the <a href=/docs/roadmap/>Roadmap</a> to see what&rsquo;s planned</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><div class="flex flex-wrap justify-between"><span></span><span><a href=/docs/architecture/ class="flex align-center book-icon"><span>Architecture</span>
+<img src=/svg/forward.svg class=book-icon alt=Next title=Architecture></a></span></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#getting-started>Getting Started</a><ul><li><a href=#prerequisites>Prerequisites</a></li><li><a href=#local-development-setup>Local Development Setup</a><ul><li><a href=#backend-setup>Backend Setup</a></li><li><a href=#frontend-setup>Frontend Setup</a></li></ul></li><li><a href=#verification>Verification</a></li><li><a href=#next-steps>Next Steps</a></li></ul></li></ul></nav></div></aside></main></body></html>

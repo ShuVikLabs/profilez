@@ -1,0 +1,148 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='
+  API Reference
+  
+  #
+  
+
+
+  Base URL
+  
+  #
+  
+
+All API endpoints are prefixed with /api/v1
+
+  Authentication
+  
+  #
+  
+
+Currently, the MVP phase does not require authentication. Future phases will implement:
+
+JWT-based authentication
+Role-based access control (RBAC)
+API key management for recruiters
+
+
+  MVP Endpoints
+  
+  #
+  
+
+
+  Health Check
+  
+  #
+  
+
+
+  GET /health
+  
+  #
+  
+
+Check the health status of the backend service.
+Response:
+{
+  "status": "UP",
+  "timestamp": "2024-01-01T12:00:00Z"
+}
+
+  Candidates
+  
+  #
+  
+
+
+  POST /candidates
+  
+  #
+  
+
+Create a new candidate profile.'><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://profilez-docs.netlify.app/docs/api/"><meta property="og:site_name" content="Profilez Documentation"><meta property="og:title" content="API Reference"><meta property="og:description" content='API Reference # Base URL # All API endpoints are prefixed with /api/v1
+Authentication # Currently, the MVP phase does not require authentication. Future phases will implement:
+JWT-based authentication Role-based access control (RBAC) API key management for recruiters MVP Endpoints # Health Check # GET /health # Check the health status of the backend service.
+Response:
+{ "status": "UP", "timestamp": "2024-01-01T12:00:00Z" } Candidates # POST /candidates # Create a new candidate profile.'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>API Reference | Profilez Documentation</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://profilez-docs.netlify.app/docs/api/><link rel=stylesheet href=/book.min.5c80a20e1f11b0e9dc4cae70ce44083860ffa999a7bf8ab5dab38664fde8a418.css integrity="sha256-XICiDh8RsOncTK5wzkQIOGD/qZmnv4q12rOGZP3opBg=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.106fab6c193958537ecfa8bad4c98f41f38913246d803d531556ade8b2a5743a.js integrity="sha256-EG+rbBk5WFN+z6i61MmPQfOJEyRtgD1TFVat6LKldDo=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Profilez Documentation</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/docs/getting-started/>Getting Started</a></li><li><a href=/docs/architecture/>Architecture</a></li><li><a href=/docs/api/ class=active>API Reference</a></li><li><a href=/docs/roadmap/>Roadmap</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>API Reference</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#api-reference>API Reference</a><ul><li><a href=#base-url>Base URL</a></li><li><a href=#authentication>Authentication</a></li><li><a href=#mvp-endpoints>MVP Endpoints</a><ul><li><a href=#health-check>Health Check</a></li><li><a href=#candidates>Candidates</a></li></ul></li><li><a href=#future-endpoints>Future Endpoints</a><ul><li><a href=#phase-1---multi-candidate--search>Phase 1 - Multi-Candidate + Search</a></li><li><a href=#phase-2---recruiters--subscriptions>Phase 2 - Recruiters & Subscriptions</a></li><li><a href=#phase-3---verification>Phase 3 - Verification</a></li><li><a href=#phase-4---ai-search>Phase 4 - AI Search</a></li></ul></li><li><a href=#error-handling>Error Handling</a></li><li><a href=#rate-limiting>Rate Limiting</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=api-reference>API Reference
+<a class=anchor href=#api-reference>#</a></h1><h2 id=base-url>Base URL
+<a class=anchor href=#base-url>#</a></h2><p>All API endpoints are prefixed with <code>/api/v1</code></p><h2 id=authentication>Authentication
+<a class=anchor href=#authentication>#</a></h2><p>Currently, the MVP phase does not require authentication. Future phases will implement:</p><ul><li>JWT-based authentication</li><li>Role-based access control (RBAC)</li><li>API key management for recruiters</li></ul><h2 id=mvp-endpoints>MVP Endpoints
+<a class=anchor href=#mvp-endpoints>#</a></h2><h3 id=health-check>Health Check
+<a class=anchor href=#health-check>#</a></h3><h4 id=get-health>GET /health
+<a class=anchor href=#get-health>#</a></h4><p>Check the health status of the backend service.</p><p><strong>Response:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;UP&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;timestamp&#34;</span>: <span style=color:#e6db74>&#34;2024-01-01T12:00:00Z&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=candidates>Candidates
+<a class=anchor href=#candidates>#</a></h3><h4 id=post-candidates>POST /candidates
+<a class=anchor href=#post-candidates>#</a></h4><p>Create a new candidate profile.</p><p><strong>Request Body:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;fullName&#34;</span>: <span style=color:#e6db74>&#34;John Doe&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;headline&#34;</span>: <span style=color:#e6db74>&#34;Senior Software Engineer&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;summary&#34;</span>: <span style=color:#e6db74>&#34;Experienced developer with 5+ years in full-stack development&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;links&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;linkedin&#34;</span>: <span style=color:#e6db74>&#34;https://linkedin.com/in/johndoe&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;github&#34;</span>: <span style=color:#e6db74>&#34;https://github.com/johndoe&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;portfolio&#34;</span>: <span style=color:#e6db74>&#34;https://johndoe.dev&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>Response:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#e6db74>&#34;123e4567-e89b-12d3-a456-426614174000&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;slug&#34;</span>: <span style=color:#e6db74>&#34;john-doe&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;fullName&#34;</span>: <span style=color:#e6db74>&#34;John Doe&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;headline&#34;</span>: <span style=color:#e6db74>&#34;Senior Software Engineer&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;summary&#34;</span>: <span style=color:#e6db74>&#34;Experienced developer with 5+ years in full-stack development&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;links&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;linkedin&#34;</span>: <span style=color:#e6db74>&#34;https://linkedin.com/in/johndoe&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;github&#34;</span>: <span style=color:#e6db74>&#34;https://github.com/johndoe&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;portfolio&#34;</span>: <span style=color:#e6db74>&#34;https://johndoe.dev&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;createdAt&#34;</span>: <span style=color:#e6db74>&#34;2024-01-01T12:00:00Z&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;updatedAt&#34;</span>: <span style=color:#e6db74>&#34;2024-01-01T12:00:00Z&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=put-candidatesid>PUT /candidates/{id}
+<a class=anchor href=#put-candidatesid>#</a></h4><p>Update an existing candidate profile.</p><p><strong>Parameters:</strong></p><ul><li><code>id</code> (path) - Candidate ID</li></ul><p><strong>Request Body:</strong> Same as POST /candidates</p><p><strong>Response:</strong> Updated candidate object</p><h4 id=get-candidatesslug>GET /candidates/{slug}
+<a class=anchor href=#get-candidatesslug>#</a></h4><p>Retrieve a candidate profile by slug for public viewing.</p><p><strong>Parameters:</strong></p><ul><li><code>slug</code> (path) - URL-friendly candidate identifier</li></ul><p><strong>Response:</strong> Candidate object (same as POST response)</p><h2 id=future-endpoints>Future Endpoints
+<a class=anchor href=#future-endpoints>#</a></h2><p>The following endpoints will be implemented in later phases:</p><h3 id=phase-1---multi-candidate--search>Phase 1 - Multi-Candidate + Search
+<a class=anchor href=#phase-1---multi-candidate--search>#</a></h3><h4 id=get-candidates>GET /candidates
+<a class=anchor href=#get-candidates>#</a></h4><p>Search and filter candidates.</p><p><strong>Query Parameters:</strong></p><ul><li><code>q</code> - Search query (fuzzy search)</li><li><code>skills</code> - Comma-separated list of skills</li><li><code>experience</code> - Minimum years of experience</li><li><code>location</code> - Location filter</li><li><code>page</code> - Page number (pagination)</li><li><code>limit</code> - Results per page</li></ul><h4 id=get-candidatesidexperience>GET /candidates/{id}/experience
+<a class=anchor href=#get-candidatesidexperience>#</a></h4><p>Get candidate&rsquo;s work experience.</p><h4 id=post-candidatesidexperience>POST /candidates/{id}/experience
+<a class=anchor href=#post-candidatesidexperience>#</a></h4><p>Add work experience to candidate profile.</p><h4 id=get-candidatesidprojects>GET /candidates/{id}/projects
+<a class=anchor href=#get-candidatesidprojects>#</a></h4><p>Get candidate&rsquo;s projects.</p><h4 id=post-candidatesidprojects>POST /candidates/{id}/projects
+<a class=anchor href=#post-candidatesidprojects>#</a></h4><p>Add project to candidate profile.</p><h3 id=phase-2---recruiters--subscriptions>Phase 2 - Recruiters & Subscriptions
+<a class=anchor href=#phase-2---recruiters--subscriptions>#</a></h3><h4 id=post-recruitersregister>POST /recruiters/register
+<a class=anchor href=#post-recruitersregister>#</a></h4><p>Register a new recruiter account.</p><h4 id=post-recruiterslogin>POST /recruiters/login
+<a class=anchor href=#post-recruiterslogin>#</a></h4><p>Authenticate recruiter login.</p><h4 id=get-recruiterssubscriptions>GET /recruiters/subscriptions
+<a class=anchor href=#get-recruiterssubscriptions>#</a></h4><p>Get recruiter&rsquo;s search subscriptions.</p><h4 id=post-recruiterssubscriptions>POST /recruiters/subscriptions
+<a class=anchor href=#post-recruiterssubscriptions>#</a></h4><p>Create a new search subscription.</p><h3 id=phase-3---verification>Phase 3 - Verification
+<a class=anchor href=#phase-3---verification>#</a></h3><h4 id=get-assessments>GET /assessments
+<a class=anchor href=#get-assessments>#</a></h4><p>List available assessments.</p><h4 id=post-candidatesidassessments>POST /candidates/{id}/assessments
+<a class=anchor href=#post-candidatesidassessments>#</a></h4><p>Submit assessment results.</p><h4 id=get-candidatesidbadges>GET /candidates/{id}/badges
+<a class=anchor href=#get-candidatesidbadges>#</a></h4><p>Get verification badges for candidate.</p><h3 id=phase-4---ai-search>Phase 4 - AI Search
+<a class=anchor href=#phase-4---ai-search>#</a></h3><h4 id=post-searchsemantic>POST /search/semantic
+<a class=anchor href=#post-searchsemantic>#</a></h4><p>Perform semantic search with natural language queries.</p><p><strong>Request Body:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;query&#34;</span>: <span style=color:#e6db74>&#34;Find React developers with machine learning experience&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;filters&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;experience_min&#34;</span>: <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;location&#34;</span>: <span style=color:#e6db74>&#34;Remote&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=error-handling>Error Handling
+<a class=anchor href=#error-handling>#</a></h2><p>All endpoints follow standard HTTP status codes:</p><ul><li><code>200</code> - Success</li><li><code>201</code> - Created</li><li><code>400</code> - Bad Request (validation errors)</li><li><code>401</code> - Unauthorized</li><li><code>403</code> - Forbidden</li><li><code>404</code> - Not Found</li><li><code>500</code> - Internal Server Error</li></ul><p><strong>Error Response Format:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;error&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;code&#34;</span>: <span style=color:#e6db74>&#34;VALIDATION_ERROR&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;message&#34;</span>: <span style=color:#e6db74>&#34;Invalid input data&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;details&#34;</span>: [
+</span></span><span style=display:flex><span>      {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;field&#34;</span>: <span style=color:#e6db74>&#34;fullName&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;message&#34;</span>: <span style=color:#e6db74>&#34;Full name is required&#34;</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;timestamp&#34;</span>: <span style=color:#e6db74>&#34;2024-01-01T12:00:00Z&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=rate-limiting>Rate Limiting
+<a class=anchor href=#rate-limiting>#</a></h2><p>Future implementations will include:</p><ul><li>Request rate limiting per IP/user</li><li>Different limits for authenticated vs anonymous users</li><li>Subscription-based rate limit tiers</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><div class="flex flex-wrap justify-between"><span><a href=/docs/architecture/ class="flex align-center book-icon"><img src=/svg/backward.svg class=book-icon alt=Previous title=Architecture>
+<span>Architecture</span>
+</a></span><span><a href=/docs/roadmap/ class="flex align-center book-icon"><span>Roadmap</span>
+<img src=/svg/forward.svg class=book-icon alt=Next title=Roadmap></a></span></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#api-reference>API Reference</a><ul><li><a href=#base-url>Base URL</a></li><li><a href=#authentication>Authentication</a></li><li><a href=#mvp-endpoints>MVP Endpoints</a><ul><li><a href=#health-check>Health Check</a></li><li><a href=#candidates>Candidates</a></li></ul></li><li><a href=#future-endpoints>Future Endpoints</a><ul><li><a href=#phase-1---multi-candidate--search>Phase 1 - Multi-Candidate + Search</a></li><li><a href=#phase-2---recruiters--subscriptions>Phase 2 - Recruiters & Subscriptions</a></li><li><a href=#phase-3---verification>Phase 3 - Verification</a></li><li><a href=#phase-4---ai-search>Phase 4 - AI Search</a></li></ul></li><li><a href=#error-handling>Error Handling</a></li><li><a href=#rate-limiting>Rate Limiting</a></li></ul></li></ul></nav></div></aside></main></body></html>

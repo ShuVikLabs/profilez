@@ -20,6 +20,7 @@ jobs:
     outputs:
       frontend: ${{ steps.filter.outputs.frontend }}
       backend: ${{ steps.filter.outputs.backend }}
+      docs: ${{ steps.filter.outputs.docs }}
     steps:
       - name: Checkout (full history for reliable diffs)
         uses: actions/checkout@v4
@@ -44,11 +45,14 @@ jobs:
               - 'frontend/**'
             backend:
               - 'backend/**'
+            docs:
+              - 'docs/**'
 
       - name: Echo filter results
         run: |
           echo "frontend=${{ steps.filter.outputs.frontend }}"
           echo "backend=${{ steps.filter.outputs.backend }}"
+          echo "docs=${{ steps.filter.outputs.docs }}"
 
   build-frontend:
     name: Build Frontend
@@ -103,3 +107,31 @@ jobs:
           path: |
             backend/build/libs
             backend/build/reports/tests
+
+  build-docs:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+    needs: changes
+    # On push to main -> always run
+    # On PR -> run only if the filter said "true"
+    if: ${{ needs.changes.outputs.docs == 'true' }}
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Build documentation
+        run: hugo --minify
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: docs-build
+          path: docs/public

@@ -1,0 +1,74 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Architecture
+  
+  #
+  
+
+
+  System Overview
+  
+  #
+  
+
+Profilez is built as a modern, scalable web application with a clear separation between frontend and backend services.
+
+  Technology Stack
+  
+  #
+  
+
+
+Backend: Java 21 with Spring Boot 3.5.5
+Frontend: React 19.1.1 with modern JavaScript
+Build Tools: Maven/Gradle for backend, npm for frontend
+
+
+  Data Model
+  
+  #
+  
+
+The data model evolves with each phase of development:
+
+  MVP Phase
+  
+  #
+  
+
+Candidate Entity
+
+id - Unique identifier
+slug - URL-friendly identifier for public profiles
+fullName - Candidate&rsquo;s full name
+headline - Professional headline
+summary - Professional summary
+links - Social media and portfolio links
+
+
+  Later Phases
+  
+  #
+  
+
+Experience Entity"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://profilez-docs.netlify.app/docs/architecture/"><meta property="og:site_name" content="Profilez Documentation"><meta property="og:title" content="Architecture"><meta property="og:description" content="Architecture # System Overview # Profilez is built as a modern, scalable web application with a clear separation between frontend and backend services.
+Technology Stack # Backend: Java 21 with Spring Boot 3.5.5 Frontend: React 19.1.1 with modern JavaScript Build Tools: Maven/Gradle for backend, npm for frontend Data Model # The data model evolves with each phase of development:
+MVP Phase # Candidate Entity
+id - Unique identifier slug - URL-friendly identifier for public profiles fullName - Candidate’s full name headline - Professional headline summary - Professional summary links - Social media and portfolio links Later Phases # Experience Entity"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>Architecture | Profilez Documentation</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://profilez-docs.netlify.app/docs/architecture/><link rel=stylesheet href=/book.min.5c80a20e1f11b0e9dc4cae70ce44083860ffa999a7bf8ab5dab38664fde8a418.css integrity="sha256-XICiDh8RsOncTK5wzkQIOGD/qZmnv4q12rOGZP3opBg=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.106fab6c193958537ecfa8bad4c98f41f38913246d803d531556ade8b2a5743a.js integrity="sha256-EG+rbBk5WFN+z6i61MmPQfOJEyRtgD1TFVat6LKldDo=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Profilez Documentation</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/docs/getting-started/>Getting Started</a></li><li><a href=/docs/architecture/ class=active>Architecture</a></li><li><a href=/docs/api/>API Reference</a></li><li><a href=/docs/roadmap/>Roadmap</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Architecture</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#architecture>Architecture</a><ul><li><a href=#system-overview>System Overview</a><ul><li><a href=#technology-stack>Technology Stack</a></li></ul></li><li><a href=#data-model>Data Model</a><ul><li><a href=#mvp-phase>MVP Phase</a></li><li><a href=#later-phases>Later Phases</a></li></ul></li><li><a href=#frontend-architecture>Frontend Architecture</a><ul><li><a href=#react-application-structure>React Application Structure</a></li></ul></li><li><a href=#backend-architecture>Backend Architecture</a><ul><li><a href=#spring-boot-modules>Spring Boot Modules</a></li></ul></li><li><a href=#deployment-architecture>Deployment Architecture</a><ul><li><a href=#development-environment>Development Environment</a></li><li><a href=#production-environment>Production Environment</a></li></ul></li><li><a href=#security-considerations>Security Considerations</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=architecture>Architecture
+<a class=anchor href=#architecture>#</a></h1><h2 id=system-overview>System Overview
+<a class=anchor href=#system-overview>#</a></h2><p>Profilez is built as a modern, scalable web application with a clear separation between frontend and backend services.</p><h3 id=technology-stack>Technology Stack
+<a class=anchor href=#technology-stack>#</a></h3><ul><li><strong>Backend</strong>: Java 21 with Spring Boot 3.5.5</li><li><strong>Frontend</strong>: React 19.1.1 with modern JavaScript</li><li><strong>Build Tools</strong>: Maven/Gradle for backend, npm for frontend</li></ul><h2 id=data-model>Data Model
+<a class=anchor href=#data-model>#</a></h2><p>The data model evolves with each phase of development:</p><h3 id=mvp-phase>MVP Phase
+<a class=anchor href=#mvp-phase>#</a></h3><p><strong>Candidate Entity</strong></p><ul><li><code>id</code> - Unique identifier</li><li><code>slug</code> - URL-friendly identifier for public profiles</li><li><code>fullName</code> - Candidate&rsquo;s full name</li><li><code>headline</code> - Professional headline</li><li><code>summary</code> - Professional summary</li><li><code>links</code> - Social media and portfolio links</li></ul><h3 id=later-phases>Later Phases
+<a class=anchor href=#later-phases>#</a></h3><p><strong>Experience Entity</strong></p><ul><li><code>company</code> - Company name</li><li><code>title</code> - Job title</li><li><code>dates</code> - Employment period</li><li><code>highlights</code> - Key achievements</li></ul><p><strong>Project Entity</strong></p><ul><li><code>name</code> - Project name</li><li><code>description</code> - Project description</li><li><code>tech</code> - Technologies used</li><li><code>links</code> - Project links (GitHub, live demo, etc.)</li></ul><p><strong>Skill Entity</strong></p><ul><li><code>name</code> - Skill name</li><li><code>level</code> - Proficiency level</li><li><code>years</code> - Years of experience</li></ul><p><strong>Additional Entities (Future)</strong></p><ul><li><code>Recruiter</code> - Recruiter profiles and authentication</li><li><code>Subscription</code> - Recruiter subscription management</li><li><code>Assessment</code> - Online assessment system</li><li><code>VerificationBadge</code> - Verification status and badges</li></ul><h2 id=frontend-architecture>Frontend Architecture
+<a class=anchor href=#frontend-architecture>#</a></h2><h3 id=react-application-structure>React Application Structure
+<a class=anchor href=#react-application-structure>#</a></h3><p>The React frontend is organized into logical pages and components:</p><p><strong>Key Pages:</strong></p><ul><li><code>ProfileEditor</code> - Candidate profile creation and editing interface</li><li><code>PublicProfile</code> - Shareable biodata display page</li><li><code>SearchPage</code> - Recruiter search interface</li><li><code>RecruiterDashboard</code> - Recruiter management tools</li></ul><p><strong>Component Organization:</strong></p><ul><li>Reusable UI components</li><li>Form components for data entry</li><li>Display components for public profiles</li><li>Search and filter components</li></ul><h2 id=backend-architecture>Backend Architecture
+<a class=anchor href=#backend-architecture>#</a></h2><h3 id=spring-boot-modules>Spring Boot Modules
+<a class=anchor href=#spring-boot-modules>#</a></h3><p>The backend is organized into distinct modules:</p><p><strong>Core Modules:</strong></p><ul><li><strong>Candidate Management</strong> - CRUD operations for candidate profiles</li><li><strong>Search Engine</strong> - Fuzzy and semantic search capabilities</li><li><strong>Verification System</strong> - Assessment and badge management</li><li><strong>Notification Service</strong> - Email and webhook notifications</li></ul><p><strong>API Design:</strong></p><ul><li>RESTful endpoints following REST conventions</li><li>Clear separation of concerns</li><li>Comprehensive error handling</li><li>Input validation and sanitization</li></ul><h2 id=deployment-architecture>Deployment Architecture
+<a class=anchor href=#deployment-architecture>#</a></h2><h3 id=development-environment>Development Environment
+<a class=anchor href=#development-environment>#</a></h3><ul><li>Local development with hot reloading</li><li>Frontend: Vite development server</li><li>Backend: Spring Boot DevTools</li></ul><h3 id=production-environment>Production Environment
+<a class=anchor href=#production-environment>#</a></h3><ul><li>Frontend: Static site deployment (Netlify, Vercel)</li><li>Backend: Container deployment (Docker, Kubernetes)</li><li>Database: PostgreSQL or similar RDBMS</li><li>CDN: Static asset delivery</li></ul><h2 id=security-considerations>Security Considerations
+<a class=anchor href=#security-considerations>#</a></h2><ul><li>Input validation and sanitization</li><li>CORS configuration for cross-origin requests</li><li>Authentication and authorization (future phases)</li><li>Data privacy and GDPR compliance</li><li>Secure API endpoints with rate limiting</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><div class="flex flex-wrap justify-between"><span><a href=/docs/getting-started/ class="flex align-center book-icon"><img src=/svg/backward.svg class=book-icon alt=Previous title="Getting Started">
+<span>Getting Started</span>
+</a></span><span><a href=/docs/api/ class="flex align-center book-icon"><span>API Reference</span>
+<img src=/svg/forward.svg class=book-icon alt=Next title="API Reference"></a></span></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#architecture>Architecture</a><ul><li><a href=#system-overview>System Overview</a><ul><li><a href=#technology-stack>Technology Stack</a></li></ul></li><li><a href=#data-model>Data Model</a><ul><li><a href=#mvp-phase>MVP Phase</a></li><li><a href=#later-phases>Later Phases</a></li></ul></li><li><a href=#frontend-architecture>Frontend Architecture</a><ul><li><a href=#react-application-structure>React Application Structure</a></li></ul></li><li><a href=#backend-architecture>Backend Architecture</a><ul><li><a href=#spring-boot-modules>Spring Boot Modules</a></li></ul></li><li><a href=#deployment-architecture>Deployment Architecture</a><ul><li><a href=#development-environment>Development Environment</a></li><li><a href=#production-environment>Production Environment</a></li></ul></li><li><a href=#security-considerations>Security Considerations</a></li></ul></li></ul></nav></div></aside></main></body></html>
