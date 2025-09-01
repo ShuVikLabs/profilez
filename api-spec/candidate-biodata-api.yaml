@@ -12,7 +12,8 @@ info:
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
-
+security:
+  - bearerAuth: []
 servers:
   - url: http://localhost:8080/api/v1
     description: Local development server
@@ -76,7 +77,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CandidatePageResponse'
+                $ref: '#/components/schemas/CandidatePageResponseV1'
         '400':
           description: Invalid request parameters
           content:
@@ -101,14 +102,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateCandidateRequest'
+              $ref: '#/components/schemas/CreateCandidateRequestV1'
       responses:
         '201':
           description: Candidate created successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CandidateResponse'
+                $ref: '#/components/schemas/CandidateResponseV1'
         '400':
           description: Invalid request data
           content:
@@ -149,7 +150,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CandidateResponse'
+                $ref: '#/components/schemas/CandidateResponseV1'
         '404':
           description: Candidate not found
           content:
@@ -182,14 +183,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateCandidateRequest'
+              $ref: '#/components/schemas/UpdateCandidateRequestV1'
       responses:
         '200':
           description: Candidate updated successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CandidateResponse'
+                $ref: '#/components/schemas/CandidateResponseV1'
         '400':
           description: Invalid request data
           content:
@@ -281,7 +282,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DocumentResponse'
+                $ref: '#/components/schemas/DocumentResponseV1'
         '400':
           description: Invalid file or request data
           content:
@@ -329,7 +330,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/DocumentResponse'
+                  $ref: '#/components/schemas/DocumentResponseV1'
         '404':
           description: Candidate not found
           content:
@@ -401,14 +402,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CandidateStatusRequest'
+              $ref: '#/components/schemas/CandidateStatusRequestV1'
       responses:
         '200':
           description: Candidate status updated successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CandidateResponse'
+                $ref: '#/components/schemas/CandidateResponseV1'
         '400':
           description: Invalid status data
           content:
@@ -430,7 +431,7 @@ paths:
 
 components:
   schemas:
-    CandidateResponse:
+    CandidateResponseV1:
       type: object
       required:
         - id
@@ -467,7 +468,7 @@ components:
           description: Candidate's date of birth
           example: "1990-05-15"
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: '#/components/schemas/AddressV1'
         summary:
           type: string
           description: Professional summary or bio
@@ -486,15 +487,15 @@ components:
         education:
           type: array
           items:
-            $ref: '#/components/schemas/Education'
+            $ref: '#/components/schemas/EducationV1'
         workExperience:
           type: array
           items:
-            $ref: '#/components/schemas/WorkExperience'
+            $ref: '#/components/schemas/WorkExperienceV1'
         documents:
           type: array
           items:
-            $ref: '#/components/schemas/DocumentResponse'
+            $ref: '#/components/schemas/DocumentResponseV1'
         createdAt:
           type: string
           format: date-time
@@ -504,7 +505,7 @@ components:
           format: date-time
           description: Timestamp when the candidate was last updated
 
-    CreateCandidateRequest:
+    CreateCandidateRequestV1:
       type: object
       required:
         - firstName
@@ -533,7 +534,7 @@ components:
           format: date
           description: Candidate's date of birth
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: '#/components/schemas/AddressV1'
         summary:
           type: string
           maxLength: 1000
@@ -550,13 +551,13 @@ components:
         education:
           type: array
           items:
-            $ref: '#/components/schemas/Education'
+            $ref: '#/components/schemas/EducationV1'
         workExperience:
           type: array
           items:
-            $ref: '#/components/schemas/WorkExperience'
+            $ref: '#/components/schemas/WorkExperienceV1'
 
-    UpdateCandidateRequest:
+    UpdateCandidateRequestV1:
       type: object
       properties:
         firstName:
@@ -581,7 +582,7 @@ components:
           format: date
           description: Candidate's date of birth
         address:
-          $ref: '#/components/schemas/Address'
+          $ref: '#/components/schemas/AddressV1'
         summary:
           type: string
           maxLength: 1000
@@ -598,13 +599,13 @@ components:
         education:
           type: array
           items:
-            $ref: '#/components/schemas/Education'
+            $ref: '#/components/schemas/EducationV1'
         workExperience:
           type: array
           items:
-            $ref: '#/components/schemas/WorkExperience'
+            $ref: '#/components/schemas/WorkExperienceV1'
 
-    Address:
+    AddressV1:
       type: object
       properties:
         street:
@@ -624,7 +625,7 @@ components:
           description: Country
           example: "United States"
 
-    Education:
+    EducationV1:
       type: object
       required:
         - institution
@@ -655,7 +656,7 @@ components:
           maximum: 4.0
           description: Grade Point Average
 
-    WorkExperience:
+    WorkExperienceV1:
       type: object
       required:
         - company
@@ -687,7 +688,7 @@ components:
             type: string
           description: Skills used in this role
 
-    DocumentResponse:
+    DocumentResponseV1:
       type: object
       required:
         - id
@@ -726,7 +727,7 @@ components:
           format: date-time
           description: Timestamp when the document was uploaded
 
-    CandidatePageResponse:
+    CandidatePageResponseV1:
       type: object
       required:
         - content
@@ -738,7 +739,7 @@ components:
         content:
           type: array
           items:
-            $ref: '#/components/schemas/CandidateResponse'
+            $ref: '#/components/schemas/CandidateResponseV1'
           description: List of candidates in the current page
         totalElements:
           type: integer
@@ -759,7 +760,7 @@ components:
           type: boolean
           description: Whether this is the last page
 
-    CandidateStatusRequest:
+    CandidateStatusRequestV1:
       type: object
       required:
         - status
